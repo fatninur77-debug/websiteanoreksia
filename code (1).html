@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anoreksia Edu: Pahami dan Lawan</title>
+    <style>
+        /* CSS untuk desain menarik dan responsif */
+        body {
+            font-family: 'Arial', sans-serif; /* Font modern untuk keterbacaan */
+            background-color: #A7C7E7; /* Biru muda sebagai latar belakang utama */
+            color: #333; /* Warna teks gelap untuk kontras */
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #A8E6CE; /* Hijau lembut untuk header */
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in; /* Animasi fade-in sederhana */
+        }
+        
+        nav {
+            background-color: #FFB347; /* Oranye lembut untuk navigasi */
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        section {
+            background-color: white; /* Latar putih untuk konten */
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px; /* Sudut membulat untuk desain menarik */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Efek bayangan */
+            animation: fadeIn 1s ease-in; /* Animasi untuk setiap section */
+        }
+        
+        h2 {
+            color: #A8E6CE; /* Hijau lembut untuk heading */
+        }
+        
+        /* Animasi CSS sederhana */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Styling untuk kuis */
+        .quiz-container {
+            background-color: #FFB347; /* Oranye untuk kuis */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        
+        button {
+            background-color: #A8E6CE; /* Hijau untuk tombol */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #8CBF9E; /* Variasi hijau saat hover */
+        }
+        
+        /* Responsif untuk mobile */
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anoreksia Edu: Pahami, Cegah, dan Sembuh</h1>
+        <p>Selamat datang! Pelajari tentang anoreksia secara interaktif.</p>
+    </header>
+    
+    <nav>
+        <a href="#pengertian">Pengertian</a>
+        <a href="#penyebab">Penyebab</a>
+        <a href="#penutup">Penutup (Kuis)</a>
+    </nav>
+    
+    <main>
+        <section id="pengertian">
+            <h2>Pengertian Anoreksia</h2>
+            <p>Anoreksia nervosa adalah gangguan makan serius di mana seseorang memiliki ketakutan ekstrem untuk gemuk, sehingga membatasi asupan makanan secara berlebihan. Ini melibatkan faktor fisik dan psikologis.</p>
+            <p><strong>Elemen pendukung:</strong> Bayangkan di sini ada infografis atau gambar (placeholder: <img src="https://via.placeholder.com/300" alt="Ilustrasi anoreksia">).</p>
+        </section>
+        
+        <section id="penyebab">
+            <h2>Penyebab Anoreksia</h2>
+            <p>Penyebab meliputi faktor genetik, tekanan sosial dari media, trauma masa lalu, dan rendahnya harga diri. Misalnya, pengaruh budaya sering membuat remaja merasa tidak puas dengan tubuh mereka.</p>
+            <p><strong>Elemen pendukung:</strong> Anda bisa tambahkan video di sini, seperti: <iframe width="300" height="200" src="https://www.youtube.com/embed/dummy-video-id" frameborder="0"></iframe> (ganti dengan video asli).</p>
+        </section>
+        
+        <section id="penutup">
+            <h2>Penutup: Tes Pengetahuan Anda!</h2>
+            <p>Selamat telah membaca! Sekarang, coba kuis interaktif untuk menguji pemahaman. Ada animasi sederhana di halaman ini.</p>
+            <div class="quiz-container">
+                <div id="quiz"></div>
+                <button onclick="startQuiz()">Mulai Kuis</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Anoreksia Edu. Sumber: Organisasi kesehatan terpercaya.</p>
+    </footer>
+    
+    <script>
+        // JavaScript untuk kuis interaktif
+        const quizData = [
+            {
+                question: "Apa yang dimaksud dengan anoreksia?",
+                options: ["Gangguan makan", "Penyakit kulit", "Infeksi virus"],
+                answer: "Gangguan makan"
+            },
+            {
+                question: "Penyebab utama anoreksia adalah...",
+                options: ["Genetik dan lingkungan", "Hanya diet ketat", "Tidak ada penyebab"],
+                answer: "Genetik dan lingkungan"
+            },
+            {
+                question: "Cara mencegah anoreksia adalah...",
+                options: ["Promosikan citra tubuh positif", "Mengabaikan masalah", "Hanya olahraga"],
+                answer: "Promosikan citra tubuh positif"
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        
+        function startQuiz() {
+            showQuestion();
+        }
+        
+        function showQuestion() {
+            const quizElement = document.getElementById('quiz');
+            quizElement.innerHTML = ''; // Kosongkan konten sebelumnya
+            
+            if (currentQuestion < quizData.length) {
+                const question = quizData[currentQuestion];
+                quizElement.innerHTML += `<p class="quiz-question">${currentQuestion + 1}. ${question.question}</p>`;
+                
+                question.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.innerText = option;
+                    button.onclick = () => checkAnswer(option);
+                    quizElement.appendChild(button);
+                });
+            } else {
+                quizElement.innerHTML = `Kuis selesai! Skor Anda: ${score}/${quizData.length}. Bagus sekali!`;
+                // Animasi sederhana: Alert untuk feedback
+                alert('Terima kasih telah mengikuti kuis!');
+            }
+        }
+        
+        function checkAnswer(selected) {
+            const correctAnswer = quizData[currentQuestion].answer;
+            if (selected === correctAnswer) {
+                score++;
+                alert('Benar!');  // Feedback instan
+            } else {
+                alert('Salah, coba lagi lain kali.');
+            }
+            currentQuestion++;
+            showQuestion();  // Tampilkan pertanyaan berikutnya
+        }
+    </script>
+</body>
+</html>
